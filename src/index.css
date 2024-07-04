@@ -1,0 +1,137 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.banner {
+  background-color: #d51e27;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  font-family: "Spectral", serif;
+  font-weight: 500;
+  font-style: normal;
+  border-bottom: 5px solid #fbcc45;
+
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.pane {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+}
+
+.pdf-pane {
+  border-right: 1px solid #ccc;
+}
+
+.search-pane {
+  border-left: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background-color: #d51e27;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-box button:hover {
+  background-color: #b11b24;
+}
+
+.results-box {
+  margin-bottom: 70px;
+}
+
+.results-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.results-box li {
+  background-color: #f9f9f9;
+  margin: 50px 0; /* Increase space between sentences */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.results-box .backlink-button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #d51e27;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.results-box .backlink-button:hover {
+  background-color: #b11b24;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+}
+
+.custom-button:hover {
+  background-color: #f0f0f0;
+}
+
+.custom-button:active {
+  background-color: #e0e0e0;
+}
