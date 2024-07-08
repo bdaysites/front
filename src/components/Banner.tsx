@@ -3,7 +3,7 @@ import React from 'react';
 const Banner: React.FC = () => {
   return (
     <div className="banner">
-      WELLS FARGO
+      <img src="/wells-fargo-logo.png" alt="Wells Fargo" />
     </div>
   );
 };
