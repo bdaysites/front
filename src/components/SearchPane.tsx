@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const SearchPane: React.FC = () => {
+interface SearchPaneProps {
+  isUploaded: boolean;
+}
+
+const SearchPane: React.FC<SearchPaneProps> = ({ isUploaded }) => {
   const [searchResults, setSearchResults] = useState<string[]>([]);
   const [query, setQuery] = useState<string>('');
 
   const handleSearch = () => {
-    // This is just a dummy search function.
-    // In a real application, you would perform the actual search here.
-    const results = Array(5).fill(`Search result for "${query}"`).map((result, index) => result + ' '.repeat(index * 20)); // Add varying lengths
-    setSearchResults(results);
+    axios.post('http://127.0.0.1:5000/search', { query })
+      .then(response => {
+        // Assuming the response contains an array of search results
+        setSearchResults(response.data.results);
+      })
+      .catch(error => {
+        console.error('Error during search:', error);
+      });
   };
 
   const handleBacklink = (index: number) => {
@@ -28,13 +37,19 @@ const SearchPane: React.FC = () => {
         </ul>
       </div>
       <div className="search-box">
-        <input 
-          type="text" 
-          placeholder="Search..." 
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
+        {isUploaded ? (
+          <>
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+          </>
+        ) : (
+          <span>Document upload in progress...</span>
+        )}
       </div>
     </div>
   );
